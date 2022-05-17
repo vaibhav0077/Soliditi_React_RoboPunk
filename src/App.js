@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Mainmint from './Mainmint';
+import Navbar from './Navbars';
+import SetISPublicMintEnabled from './SetISPublicMintEnabled';
 
 function App() {
+
+  const [accounts, setAccounts] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='overlay'>
+      <div className="App">
+        <Navbar accounts={accounts} setAccounts={setAccounts} />
+        <Mainmint accounts={accounts} setAccounts={setAccounts} />
+        <SetISPublicMintEnabled />
+      </div>
+      <div className='moving-background'></div>
     </div>
   );
 }
